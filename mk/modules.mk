@@ -47,7 +47,7 @@
 #   USE_WINWAVE       Windows audio driver
 #   USE_X11           X11 video output
 #   USE_GTK           GTK+ user interface
-#
+#   USE_WEBRTC_AEC    WebRTC audio processing
 
 
 # Default is enabled
@@ -58,6 +58,7 @@ ifneq ($(MOD_AUTODETECT),)
 USE_CONS  := 1
 USE_G711  := 1
 USE_L16   := 1
+USE_WEBRTC_AEC := 1
 
 ifneq ($(OS),win32)
 
@@ -357,6 +358,9 @@ MODULES   += speex
 endif
 ifneq ($(USE_SPEEX_AEC),)
 MODULES   += speex_aec
+endif
+ifneq ($(USE_WEBRTC_AEC),)
+MODULES   += webrtc_aec
 endif
 ifneq ($(USE_SPEEX_PP),)
 MODULES   += speex_pp
